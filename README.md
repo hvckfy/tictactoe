@@ -51,23 +51,23 @@ Step 1: Create a Virtual Environment
       Create a virtual environment and name it as you prefer. You can do this using the following command:
       
       python3 -m venv /path/to/your/venv
-      ```
+      
 Step 2: Activate the Virtual Environment
 
       Activate the virtual environment using:
-      ```
+      
       source /path/to/your/venv/bin/activate
-      ```
+      
 Step 3: Install Required Libraries
 
     Once the virtual environment is activated, install the necessary libraries:
-```
+
     pip install pytelegrambotapi tarantool
-```
+
 Step 4: Create the systemd Service File
 
     Create a service file named tictactoebot.service in the /etc/systemd/system/ directory with the following content:
-```
+
     [Unit]
     Description=tictactoebot
     After=network.target
@@ -78,7 +78,7 @@ Step 4: Create the systemd Service File
     RestartSec=10
     [Install]
     WantedBy=multi-user.target
-```
+
 
 Follow these steps to set up systemd for automatic startup:
 Step 1: Move the Service File
@@ -97,34 +97,34 @@ Step 2: Configure Autostart
     After making any necessary changes, save the file and exit the editor.
 
 Step 3: Reload systemd Configuration
-```
+
 
     After moving or modifying the service file, you need to reload the systemd configuration:
     
     sudo systemctl daemon-reload
-```
+
 
 Step 4: Enable the Service to Start at Boot
-```
+
     Now you can enable the service to start automatically when the system boots:
     
     sudo systemctl enable tictactoe.service
-```
+
 Step 5: Start the Service
-```
+
     If you want to start the service immediately, run:
     
     sudo systemctl start tictactoe.service
-```
+
 Step 6: Check the Service Status
-```
+
     To ensure that the service is running correctly, execute:
     
     sudo systemctl status tictactoe.service
-```
+
 Step 7: View Logs
-```
+
     If the service fails to start or encounters errors, you can view the logs using:
     
     journalctl -u tictactoe.service
-```
+
